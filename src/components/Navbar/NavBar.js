@@ -10,14 +10,11 @@ export default function NavBar() {
     const cart = useSelector(state => state.cart)
 
     let totalItem = 0
-    cart.map(c => {
-        totalItem += c.quantity
-        return 0;
-    })
+    cart.map(c => totalItem += c.quantity)
 
     return (
         <div>
-            <div className=" bg-gray-100 flex justify-between h-12">
+            <div className="bg-gray-100 flex justify-between h-12">
                 <div className="pl-4 text-3xl mt-2 cursor-pointer  tracking-widest  lg:ml-8">
                     <h1 className="hover:text-yellow-500">
                         <Link to ='/'>DSi</Link>
