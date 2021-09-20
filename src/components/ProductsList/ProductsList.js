@@ -10,7 +10,6 @@ export default function ProductsList() {
 
     useEffect(()=>{
         if(!fetched){
-            console.log(fetched)
             dispatch(fetchProducts)
 
         }

@@ -26,7 +26,7 @@ export default function CheckOut() {
             </div>
 
             <Link className="m-auto mt-3 border cursor-pointer p-1 border-black hover:bg-black hover:text-white" to="/"
-                 onClick={() => dispatch(clearCart([]))}
+                 onClick={() => dispatch(clearCart())}
             >
                 Back to Home
             </Link>

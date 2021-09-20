@@ -36,14 +36,18 @@ export default function Cart({ setModalIsOpen, modalIsOpen }) {
 
                 {cart.map(item => {
                     total += item.quantity * item.price;
-                    return <CartItem key={item.id} item = {item} />;
+                    return <CartItem key={item.id} item = {item} />
                 })}
 
-                <div className="flex justify-end mr-8">
+                {cart.length > 0 &&  <div className="flex justify-end mr-8">
                     Total Amount : {total.toFixed(2)}
-                </div>
+                </div>}
+
+                {cart.length <= 0 &&  <div className="flex my-3 justify-center">
+                    No Items in the Cart!
+                </div>}
                 
-                <Link to ='/check_out' className="flex justify-center w-24 p-1 m-auto  border  cursor-pointer border-black hover:bg-black hover:text-white text-center"
+                <Link to ='/check_out' className="flex justify-center w-24 p-1 m-auto my-2 border  cursor-pointer border-black hover:bg-black hover:text-white text-center"
                     onClick={() =>  setModalIsOpen(false)}
                 >
                     Check Out
