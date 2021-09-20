@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import Product from "./Product/Product";
+import Product from "../Product/Product";
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts } from "../../acitons/FetchProductsAction";
 

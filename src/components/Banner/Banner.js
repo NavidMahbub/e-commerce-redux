@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Banner() {
     return (
-        <div className="bg-cover bg-center h-96 bg-banner-pattern">
+        <div className="bg-cover bg-center h-96 md:bg-banner-pattern">
             <div className="lg:tracking-widest pt-36">
                 <div className="md:text-4xl text-2xl  uppercase  flex flex-col">
                     <div className="m-auto">Take Your Fit To The</div>

@@ -1,18 +1,26 @@
 import React,{useState} from "react";
 import { FaCartPlus } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Cart from "../Cart/Cart";
-// import {Link} from 'react-router-dom'
 
 
 export default function NavBar() {
-    const [modalIsOpen, setIsOpen] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const cart = useSelector(state => state.cart)
+
+    let totalItem = 0
+    cart.map(c => {
+        totalItem += c.quantity
+        return 0;
+    })
+
     return (
         <div>
             <div className=" bg-gray-100 flex justify-between h-12">
                 <div className="pl-4 text-3xl mt-2 cursor-pointer  tracking-widest  lg:ml-8">
                     <h1 className="hover:text-yellow-500">
-                        {/* <Link to="/">DSi</Link> */}
-                        <div>DSi</div>
+                        <Link to ='/'>DSi</Link>
                     </h1>
                 </div>
 
@@ -29,22 +37,21 @@ export default function NavBar() {
                         </ul>
                     </div>
 
-                    <div className="text-sm  lg:text-md  m-auto lg:mr-10 ">
-                        <ul className="visible  lg:mr-6 list-none flex">
-                            <li
+                    <div className="text-md visible  m-auto lg:mr-10 ">
+                        <div className="lg:mr-6 list-none flex">
+                            <div
                                 className="cursor-pointer flex"
-                                onClick={(e) => setIsOpen(!modalIsOpen)}
+                                onClick={() => setModalIsOpen(!modalIsOpen)}
                             >
                                 <FaCartPlus className=" text-xl text-yellow-500" />
-
-                                <div className="pl-2">1</div>
-                            </li>
-                        </ul>
+                                <div className="pl-2">{totalItem}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <Cart setIsOpen={setIsOpen} modalIsOpen={modalIsOpen} />
+            <Cart setModalIsOpen={setModalIsOpen} modalIsOpen={modalIsOpen} />
         </div>
     );
 }
