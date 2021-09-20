@@ -4,6 +4,7 @@ import {
     DELETE_FROM_CART,
 } from "../actionsType/AcitonsTypes";
 
+
 export const cartReducer = (state = [], action) => {
 
     switch (action.type) {

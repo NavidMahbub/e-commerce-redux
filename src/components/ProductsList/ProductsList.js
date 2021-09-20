@@ -5,12 +5,16 @@ import { fetchProducts } from "../../acitons/FetchProductsAction";
 
 export default function ProductsList() {
     
-    const products = useSelector(state => state.products)
+    const {fetched, products} = useSelector(state => state.fetchedProducts)
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(fetchProducts)
-    },[dispatch])
+        if(!fetched){
+            console.log(fetched)
+            dispatch(fetchProducts)
+
+        }
+    },[dispatch, fetched])
 
     return (
         <div className="flex justify-center bg-gray-100">
