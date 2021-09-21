@@ -34,7 +34,7 @@ export default function Cart({ setModalIsOpen, modalIsOpen }) {
                 <h2 className="text-center tracking-widest">Cart Items</h2>
 
                 {cart.map(item => {
-                    total += item.quantity * item.price;
+                    total += item.quantity * item.price
                     return <CartItem key={item.id} item = {item} />
                 })}
 
@@ -42,8 +42,8 @@ export default function Cart({ setModalIsOpen, modalIsOpen }) {
                     Total Amount : {total.toFixed(2)}
                 </div>}
 
-                {cart.length <= 0 &&  <div className="flex my-3 justify-center">
-                    No Items in the Cart!
+                {cart.length <= 0 &&  <div className="flex my-3 text-red-500 justify-center">
+                    No item in the cart!
                 </div>}
                 
                 <Link to ='/check_out' className="flex justify-center w-24 p-1 m-auto my-2 border mb-14 cursor-pointer border-black hover:bg-black hover:text-white"
