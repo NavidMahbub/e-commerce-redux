@@ -13,10 +13,10 @@ export default function CheckOut() {
         <div className="flex flex-col mt-20 mb-32">
             <div className="m-auto text-xl mb-10">---- Product list -----</div>
 
-            <div className= "flex flex-col  m-auto justify-center">
+            <div className= " m-auto ">
                 {cart.map((c, idx) => (
-                    <div className="shadow-xl text-center w-96 h-14 rounded bg-gray-100 my-3">
-                        {idx + 1} : {c.title}
+                    <div key ={c.id} className="shadow-xl flex flex-col justify-center text-center w-full lg:w-96 h-16 text-sm rounded bg-gray-100 my-6 px-2">
+                        {idx + 1} : {c.title.slice(0,71)}
                     </div>
                 ))}
             </div>

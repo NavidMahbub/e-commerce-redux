@@ -22,8 +22,8 @@ export default function CartItem({ item }) {
                             className="w-6 h-auto ml-4 lg:ml-6"
                             alt=""
                         />
-                        <div className=" ml-6 m-auto text-sm">
-                            <p>{item.title}</p>
+                        <div className=" ml-6 m-auto text-xs">
+                            <p>{item.title.slice(0,25)}..</p>
                             <p>$ {item.price}</p>
                         </div>
                     </div>
