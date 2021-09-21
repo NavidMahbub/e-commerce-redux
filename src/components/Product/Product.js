@@ -13,7 +13,7 @@ export default function Product({ product }) {
 
 
     return (
-        <div className="w-52 shadow-xl m-6 lg:m-10 flex flex-col justify-between bg-white border-2 rounded-lg">
+        <div className="w-52 shadow-xl hover:shadow-2xl m-6 lg:m-10 flex flex-col justify-between bg-white border-2 rounded-lg">
             <img
                 src={product.image}
                 className="h-32 m-auto"
