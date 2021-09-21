@@ -1,5 +1,5 @@
 import React from "react";
-import { addToCart, deleteFromCart } from "../../acitons/CartAction";
+import { addToCart, deleteFromCart, updateToCart } from "../../acitons/CartAction";
 import { useDispatch } from "react-redux";
 
 export default function CartItem({ item }) {
@@ -32,14 +32,14 @@ export default function CartItem({ item }) {
                         <div className="py-1 flex justify-between border w-20  m-auto">
                             <p
                                 className="cursor-pointer px-3"
-                                onClick={() => dispatch(addToCart({...item, quantity: -1})) }
+                                onClick={() => dispatch(updateToCart({...item, quantity: -1})) }
                             >
                                 -
                             </p>
                             {item.quantity}
                             <p
                                 className="cursor-pointer px-3 "
-                                onClick={() => dispatch(addToCart({...item, quantity: 1})) }
+                                onClick={() => dispatch(updateToCart({...item, quantity: 1})) }
                             >
                                 +
                             </p>

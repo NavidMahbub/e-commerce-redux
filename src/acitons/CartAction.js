@@ -7,6 +7,13 @@ export const addToCart = product => {
     }
 }
 
+export const updateToCart = product => {
+    return {
+        type : ACTIONS.UPDATE_TO_CART,
+        payload: product
+    }
+}
+
 
 export const deleteFromCart = id => {
     return {

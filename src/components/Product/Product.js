@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../../acitons/CartAction";
+import { addToCart, updateToCart } from "../../acitons/CartAction";
 
 export default function Product({ product }) {
     const cart = useSelector(state => state.cart)
@@ -29,7 +29,7 @@ export default function Product({ product }) {
                     <div className="py-1 m-auto flex justify-between border w-20 ">
                         <p
                             className="cursor-pointer px-2"
-                            onClick={() => dispatch(addToCart({...product, quantity: -1})) }
+                            onClick={() => dispatch(updateToCart({...product, quantity: -1})) }
                         >
                             -
                         </p>
@@ -38,7 +38,7 @@ export default function Product({ product }) {
 
                         <p
                             className="cursor-pointer px-2"
-                            onClick={() => dispatch(addToCart({...product, quantity: 1})) }
+                            onClick={() => dispatch(updateToCart({...product, quantity: 1})) }
                         >
                             +
                         </p>
