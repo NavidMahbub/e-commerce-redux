@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import CartItem from "../CartItem/CartItem";
 
 export default function Cart({ setModalIsOpen, modalIsOpen }) {
-    let subtitle,
-        total = 0;
+    let subtitle, total = 0;
 
     const cart  = useSelector(state => state.cart)
 
@@ -19,13 +18,13 @@ export default function Cart({ setModalIsOpen, modalIsOpen }) {
     return (
         <div>
             <Modal
-                className ="bg-gray-200 absolute right-1 top-8 h-auto overflow-hidden w-full md:w-96 "
-                isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModal}
-                onRequestClose={ () => setModalIsOpen(false)}
+                className ="overflow-scroll bg-gray-200 absolute right-1 top-8 h-full overflow-hidden w-full md:w-96 "
+                isOpen = {modalIsOpen}
+                onAfterOpen = {afterOpenModal}
+                onRequestClose = { () => setModalIsOpen(false)}
             >
                 <h2
-                    ref={(_subtitle) => (subtitle = _subtitle)}
+                    ref = {(_subtitle) => (subtitle = _subtitle)}
                     onClick={ () => setModalIsOpen(false)}
                     className="cursor-pointer ml-2"
                 >
@@ -47,7 +46,7 @@ export default function Cart({ setModalIsOpen, modalIsOpen }) {
                     No Items in the Cart!
                 </div>}
                 
-                <Link to ='/check_out' className="flex justify-center w-24 p-1 m-auto my-2 border  cursor-pointer border-black hover:bg-black hover:text-white text-center"
+                <Link to ='/check_out' className="flex justify-center w-24 p-1 m-auto my-2 border mb-14 cursor-pointer border-black hover:bg-black hover:text-white"
                     onClick={() =>  setModalIsOpen(false)}
                 >
                     Check Out

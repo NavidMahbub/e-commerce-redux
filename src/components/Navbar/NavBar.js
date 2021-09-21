@@ -24,7 +24,7 @@ export default function NavBar() {
                 <div className="flex">
                     <div className="text-sm invisible lg:visible lg:text-md m-auto lg:mr-10  flex">
                         <ul className="ml-2  list-none flex">
-                            <li className="cursor-pointer">Home</li>
+                            <li className="cursor-pointer"><Link to= '/'>Home</Link></li>
                             <li className="cursor-pointer ml-3 lg:ml-12">
                                 Products
                             </li>
