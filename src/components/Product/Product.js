@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, updateToCart } from "../../acitons/CartAction";
+import {AiFillStar} from 'react-icons/ai'
 
 export default function Product({ product }) {
     const cart = useSelector(state => state.cart)
@@ -21,7 +22,12 @@ export default function Product({ product }) {
 
             <div className="text-xs mt-6 pb-0px m-2">
                 <p>{product.title}</p>
-                <p className="mt-2 font-bold">$ {product.price}</p>
+                <div className ='flex justify-between'>
+                    <p className="mt-2 text-yellow-500 tracking-widest font-bold">$ {product.price}</p>
+                    <p className="mt-2 flex">{product.rating.rate} <AiFillStar className = ' ml-1 text-yellow-500 m-auto'/> </p>
+                </div>
+                {/* <p>{product.rating.count}</p> */}
+                
             </div>
 
             <div className="flex justify-between p-2">

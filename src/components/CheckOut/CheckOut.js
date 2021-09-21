@@ -17,6 +17,7 @@ export default function CheckOut() {
                 {cart.map((c, idx) => (
                     <div key ={c.id} className="shadow-xl flex flex-col justify-center text-center w-full lg:w-96 h-16 text-sm rounded bg-gray-100 my-6 px-2">
                         {idx + 1} : {c.title.slice(0,71)}
+                        {console.log(c)}
                     </div>
                 ))}
             </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { addToCart, deleteFromCart, updateToCart } from "../../acitons/CartAction";
+import { deleteFromCart, updateToCart } from "../../acitons/CartAction";
 import { useDispatch } from "react-redux";
 
 export default function CartItem({ item }) {
