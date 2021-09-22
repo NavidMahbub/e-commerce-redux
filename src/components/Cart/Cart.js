@@ -1,15 +1,17 @@
 import React from "react";
 import Modal from "react-modal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartItem from "../CartItem/CartItem";
-import {BsArrowRight} from 'react-icons/bs'
+import { BsArrowRight } from "react-icons/bs";
+import costCalculation from "./costCalculation";
+import { clearCart } from "../../acitons/CartAction";
 
 export default function Cart({ setModalIsOpen, modalIsOpen }) {
+    const cart = useSelector((state) => state.cart)
+        const dispatch = useDispatch();
     let subtitle,
-        total = 0;
-
-    const cart = useSelector((state) => state.cart);
+        total = costCalculation(cart);
 
     Modal.setAppElement("#root");
 
@@ -35,11 +37,10 @@ export default function Cart({ setModalIsOpen, modalIsOpen }) {
 
                 <h2 className="text-center tracking-widest">Cart Items</h2>
 
-                <div >
-                    {cart.map((item) => {
-                        total += item.quantity * item.price;
-                        return <CartItem key={item.id} item={item} />;
-                    })}
+                <div>
+                    {cart.map((item) => (
+                        <CartItem key={item.id} item={item} />
+                    ))}
                 </div>
 
                 {cart.length <= 0 && (
@@ -47,22 +48,37 @@ export default function Cart({ setModalIsOpen, modalIsOpen }) {
                         No item in the cart!
                     </div>
                 )}
-                
-                <div >
+
+                <div>
                     {cart.length > 0 && (
                         <div className="flex justify-end mr-8">
                             Total Amount : {total.toFixed(2)}
                         </div>
                     )}
 
-                    <Link
-                        to="/check_out"
-                        className="flex justify-center w-24 p-1 m-auto my-3 border mb-4 cursor-pointer border-black hover:bg-black hover:text-white"
+                    <div className="flex">
+                        <div
+                            className="flex justify-center text-red-700 w-24 p-1 m-auto my-3 border mb-4 cursor-pointer border-red-700 hover:bg-red-500 hover:text-white"
+                            onClick={() => dispatch(clearCart())}
+                        >
+                            Clear Cart
+                        </div>
+                        <Link
+                            to="/check_out"
+                            className="flex justify-center text-green-700 w-24 p-1 m-auto my-3 border mb-4 cursor-pointer border-green-700 hover:bg-green-700 hover:text-white"
+                            onClick={() => setModalIsOpen(false)}
+                        >
+                            Check Out
+                        </Link>
+                    </div>
+
+                    <div
+                        className="flex justify-end cursor-pointer mr-6 text-green-600 mb-4 "
                         onClick={() => setModalIsOpen(false)}
                     >
-                        Check Out
-                    </Link>
-                    <div className ="flex justify-end cursor-pointer mr-6 text-green-600 mb-4 " onClick={() => setModalIsOpen(false)} >Continue Shoping<BsArrowRight className ='mt-1.5' /></div>
+                        Continue Shoping
+                        <BsArrowRight className="mt-1.5" />
+                    </div>
                 </div>
             </Modal>
         </div>

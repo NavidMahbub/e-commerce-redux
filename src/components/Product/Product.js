@@ -9,7 +9,6 @@ export default function Product({ product }) {
 
     const itemFound = cart.find( c => c.id === product.id )
     const quantity = itemFound ? itemFound.quantity : undefined
-    const showCartButton = !quantity
 
 
     return (
@@ -25,13 +24,11 @@ export default function Product({ product }) {
                 <div className ='flex justify-between'>
                     <p className="mt-2 text-yellow-500 tracking-widest font-bold">$ {product.price}</p>
                     <p className="mt-2 flex">{product.rating.rate} <AiFillStar className = ' ml-1 text-yellow-500 m-auto'/> </p>
-                </div>
-                {/* <p>{product.rating.count}</p> */}
-                
+                </div>                
             </div>
 
             <div className="flex justify-between p-2">
-                {!showCartButton && (
+                {quantity ? (
                     <div className="py-1 m-auto flex justify-between border w-20 ">
                         <p
                             className="cursor-pointer px-2"
@@ -48,16 +45,14 @@ export default function Product({ product }) {
                         >
                             +
                         </p>
-                    </div>
-                )}
-
-                {showCartButton &&
-                <div
+                    </div>)
+                :
+                (<div
                     className="border m-auto cursor-pointer py-1 px-2 hover:bg-black hover:text-white"
                     onClick={() => dispatch(addToCart({...product, quantity: 1})) }
                 >
                     Add to Cart
-                </div>}
+                </div>)}
             </div>
         </div>
     );

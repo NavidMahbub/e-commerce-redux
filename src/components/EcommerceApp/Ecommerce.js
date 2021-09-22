@@ -10,6 +10,9 @@ export default function Ecommerce() {
         <Provider store={store}>
             <PersistGate persistor={persistor}>
                 <RouteHandler>
+
+
+
                     <Home/>
                 </RouteHandler>
             </PersistGate>
