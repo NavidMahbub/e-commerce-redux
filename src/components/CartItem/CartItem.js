@@ -13,18 +13,17 @@ export default function CartItem({ item }) {
                     <div className="flex">
                         <div
                             className="cursor-pointer m-auto"
-                            onClick={() => dispatch(deleteFromCart(item.id))}
+                            onClick={() => dispatch(deleteFromCart(item.id)) }
                         >
                             X
                         </div>
                         <img
-                            // src={item.image}
-                            src={localStorage.getItem(item.id)? `data:image/jpg;base64,${localStorage.getItem(item.id)}`: item.image}
+                            src={item.image}
                             className="w-6 h-auto ml-4 lg:ml-6"
                             alt=""
                         />
                         <div className=" ml-6 m-auto text-xs">
-                            <p>{item.title.slice(0, 25)}..</p>
+                            <p>{item.title.slice(0,25)}..</p>
                             <p>$ {item.price}</p>
                         </div>
                     </div>
@@ -33,22 +32,14 @@ export default function CartItem({ item }) {
                         <div className="py-1 flex justify-between border w-20  m-auto">
                             <p
                                 className="cursor-pointer px-3"
-                                onClick={() =>
-                                    dispatch(
-                                        updateToCart({ ...item, quantity: -1 })
-                                    )
-                                }
+                                onClick={() => dispatch(updateToCart({...item, quantity: -1})) }
                             >
                                 -
                             </p>
                             {item.quantity}
                             <p
                                 className="cursor-pointer px-3 "
-                                onClick={() =>
-                                    dispatch(
-                                        updateToCart({ ...item, quantity: 1 })
-                                    )
-                                }
+                                onClick={() => dispatch(updateToCart({...item, quantity: 1})) }
                             >
                                 +
                             </p>

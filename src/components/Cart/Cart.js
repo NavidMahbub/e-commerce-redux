@@ -22,7 +22,7 @@ export default function Cart({ setModalIsOpen, modalIsOpen }) {
     return (
         <div>
             <Modal
-                className="overflow-scroll bg-gray-200 absolute right-1 top-1 h-full w-11/12 md:w-96 "
+                className="overflow-scroll bg-gray-200 absolute right-1 top-1 h-full w-full md:w-96 "
                 isOpen={modalIsOpen}
                 onAfterOpen={afterOpenModal}
                 onRequestClose={() => setModalIsOpen(false)}
