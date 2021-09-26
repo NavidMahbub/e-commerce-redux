@@ -11,7 +11,7 @@ export default function Footer() {
                 prices.,
                 <br /> We provide shoppers with a hassle-free and worry-free
                 international shopping ...
-            </div>a
+            </div>
             <div className="border cursor-pointer py-2 px-4 hover:bg-white hover:text-black text-center m-auto mt-4 hover:border-white shadow-xl ">
                 Buy Products
             </div>

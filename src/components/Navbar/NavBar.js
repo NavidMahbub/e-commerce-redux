@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Cart from "../Cart/Cart";
+// import Cart from "../Cart/Cart";
+import CartUsingCustomModal from "../CartUsingCutomModal/CartUsingCustomModal";
 
 export default function NavBar() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -49,7 +50,10 @@ export default function NavBar() {
                 </div>
             </div>
 
-            <Cart setModalIsOpen={setModalIsOpen} modalIsOpen={modalIsOpen} />
+            {/* <Cart setModalIsOpen={setModalIsOpen} modalIsOpen={modalIsOpen} /> */}
+
+            {modalIsOpen && <CartUsingCustomModal setModalIsOpen={setModalIsOpen}/>}
+
         </div>
     );
 }
